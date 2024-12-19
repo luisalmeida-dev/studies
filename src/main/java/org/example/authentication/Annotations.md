@@ -6,7 +6,7 @@
 - Protege os dados sensiveis, previne acesso não autorizado, permite o rastreio de uso e pode prover o controle granular
   sobre os recursos da API.
 
-## Basic Authentication [RFC7617]:
+## Basic Authentication [RFC7617](https://datatracker.ietf.org/doc/html/rfc7617):
 
 - Consiste em *transmitir as credeciais como pares de user-id/senha, codificado utilizando base64.*
 - *Não é considerado um metodo seguro de autenticação*, a não ser que seja utilizado em conjunto com sistemas de
@@ -33,7 +33,7 @@
     - **Disconnected:** Um dispositivo pode comunicar com o servidor atraves de grandes distâncias, mesmo que não toque
       o outro dispositivo. Por exemplo a *utilização de autenticação de dois fatores.*
 
-## JWT Authentication (Json Web Token)[RFC7519]:
+## JWT Authentication (Json Web Token) [RFC7519](https://datatracker.ietf.org/doc/html/rfc7519):
 
 - É formado por um Header, Payload e Signature
 - É uma representação compacta de claims(*um pedaço de informação sobre um sujeito. É a representada como um par
@@ -91,3 +91,24 @@ dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk
 */
 eyJ0eXAiOiJKV1QiLA0KICJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqb2UiLA0KICJleHAiOjEzMDA4MTkzODAsDQogImh0dHA6Ly9leGFtcGxlLmNvbS9pc19yb290Ijp0cnVlfQ.dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk
 ```
+
+## OAuth [RFC6749](https://datatracker.ietf.org/doc/html/rfc6749):
+
+- É um padrão aberto de autenticaçaõ.
+- Funciona via HTTPS e dispositivos autorizados. APIs, servers e aplicações com access token ao invés de credenciais.
+- Existe OAuth 1.0 e OAuth 2.0, são totalmente diferente e não podem ser utilizadas em conjunto. OAuth 2.0 é mais
+  utilizado atualmente
+- Foi criada em resposta ao padrão de autenticação direta como o Basic Auth. Ao invés de mandar nome de usuário e senha
+  em cada requisição, o usuário envia uma *API Key ID e secret*
+- Basicamente *permite que uma aplicação terceira obter acesso limitado a um serviço HTTP, seja em nome de um dono de
+  recurso orquestrando uma interação de aprovação entre o dono e o serviço HTTP, ou permitindo o acesso em nome da
+  aplicação terceira mesmo.*
+- **Define quatro papéis:**
+    - **Dono do recurso:** *Entidade capaz de conceder acesso a um recurso protegido*. Quando o dono é uma pessoa é
+      chamado de end-use.
+    - **Server do recurso:** *O server armazenando o recurso protegido, capaz de aceitar e responder requisições usando
+      um access token.*
+    - **Cliente:** *Uma aplicação fazer requisições aos recursos protegidos em nome do dono do recurso e com sua
+      autorização.* O termo cliente naõ indica nenhuma implementação em particular, pode ser uma aplicação em um server,
+      desktop ou outro dispositivo)
+    - **Server de autorização:** O server que emite access tokens para o cliente depois de ser autenticado com sucesso.
